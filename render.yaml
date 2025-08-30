@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: task-manager
+    runtime: docker
+    plan: free
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_KEY
+        sync: false
+      - key: DB_CONNECTION
+        value: sqlite
+      - key: DB_DATABASE
+        value: /data/sqlite.db
