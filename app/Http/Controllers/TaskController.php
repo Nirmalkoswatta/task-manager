@@ -14,8 +14,8 @@ class TaskController extends Controller
      */
     public function index()
     {
-    $tasks = Task::where('user_id', Auth::id())->latest()->get();
-    return view('tasks.index', compact('tasks'));
+        $tasks = Task::where('user_id', Auth::id())->latest()->get();
+        return view('tasks.index', compact('tasks'));
     }
 
     /**
@@ -23,7 +23,7 @@ class TaskController extends Controller
      */
     public function create()
     {
-    return view('tasks.create');
+        return view('tasks.create');
     }
 
     /**
@@ -36,7 +36,7 @@ class TaskController extends Controller
             'description' => 'nullable|string',
             'status' => 'required|in:pending,done',
         ]);
-    $validated['user_id'] = Auth::id();
+        $validated['user_id'] = Auth::id();
         Task::create($validated);
         return redirect()->route('tasks.index')->with('success', 'Task created successfully.');
     }
@@ -46,8 +46,8 @@ class TaskController extends Controller
      */
     public function show(Task $task)
     {
-    $this->authorizeTask($task);
-    return view('tasks.show', compact('task'));
+        $this->authorizeTask($task);
+        return view('tasks.show', compact('task'));
     }
 
     /**
@@ -55,8 +55,8 @@ class TaskController extends Controller
      */
     public function edit(Task $task)
     {
-    $this->authorizeTask($task);
-    return view('tasks.edit', compact('task'));
+        $this->authorizeTask($task);
+        return view('tasks.edit', compact('task'));
     }
 
     /**
@@ -86,7 +86,7 @@ class TaskController extends Controller
 
     private function authorizeTask(Task $task)
     {
-    if ($task->user_id !== Auth::id()) {
+        if ($task->user_id !== Auth::id()) {
             abort(403);
         }
     }
