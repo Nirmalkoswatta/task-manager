@@ -5,9 +5,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
+
+</head>
+<body style="margin:0;padding:0;">
+    <video autoplay muted loop id="bgvid" style="position:fixed;top:0;left:0;width:100vw;height:100vh;min-width:100vw;min-height:100vh;z-index:-1;object-fit:cover;">
+        <source src="/background4.mp4" type="video/mp4">
+    </video>
+
+    <!-- Existing content follows -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
 

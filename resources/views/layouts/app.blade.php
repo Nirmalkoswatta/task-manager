@@ -63,20 +63,20 @@
 </head>
 
 <body style="margin:0;padding:0;">
-    <video autoplay muted loop id="bgvid" style="position:fixed;right:0;bottom:0;min-width:100vw;min-height:100vh;z-index:-1;object-fit:cover;">
-        <source src="/background.mp4" type="video/mp4">
+    <video autoplay muted loop id="bgvid" style="position:fixed;top:0;left:0;width:100vw;height:100vh;min-width:100vw;min-height:100vh;z-index:-1;object-fit:cover;">
+        <source src="/background4.mp4" type="video/mp4">
     </video>
     <nav class="main-nav" style="background:rgba(255,255,255,0.85);backdrop-filter:blur(4px);">
-        <div class="container">
-            <div class="brand">Task Manager</div>
-            <div class="nav-links">
+        <div class="container" style="justify-content:flex-start;">
+            <div class="brand" style="font-size:2.2rem;font-weight:800;letter-spacing:0.04em;margin-right:2.5rem;">Task Manager</div>
+            <div class="nav-links" style="flex:1;display:flex;justify-content:flex-end;align-items:center;">
                 @auth
-                <span class="user" style="color:#FFD600;">{{ Auth::user()->name }}</span>
+                <span class="user" style="color:#FFD600;font-size:1.5rem;font-weight:700;margin-right:2rem;vertical-align:middle;">{{ Auth::user()->name }}</span>
                 <a href="{{ route('tasks.index') }}">My Tasks</a>
                 <a href="{{ route('profile.edit') }}">Profile</a>
                 <form action="{{ route('logout') }}" method="POST" style="display:inline">
                     @csrf
-                    <button type="submit" style="background:none;border:none;color:#2563eb;cursor:pointer;font-weight:500;margin-left:1.5rem;">Logout</button>
+                    <button type="submit" style="background:none;border:none;color:#ef4444;cursor:pointer;font-weight:700;margin-left:1.5rem;">Logout</button>
                 </form>
                 @else
                 <a href="{{ route('login') }}">Login</a>

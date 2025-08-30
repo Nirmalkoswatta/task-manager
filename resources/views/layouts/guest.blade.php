@@ -41,8 +41,8 @@
 </head>
 
 <body style="margin:0;padding:0;">
-    <video autoplay muted loop id="bgvid" style="position:fixed;right:0;bottom:0;min-width:100vw;min-height:100vh;z-index:-1;object-fit:cover;">
-        <source src="/background.mp4" type="video/mp4">
+    <video autoplay muted loop id="bgvid" style="position:fixed;top:0;left:0;width:100vw;height:100vh;min-width:100vw;min-height:100vh;z-index:-1;object-fit:cover;">
+        <source src="/background4.mp4" type="video/mp4">
     </video>
     <div class="auth-container">
         <div class="auth-box" style="background:rgba(255,255,255,0.92);backdrop-filter:blur(2px);box-shadow:0 2px 16px #0002;">
