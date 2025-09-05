@@ -23,7 +23,13 @@
             <tr>
                 <td>{{ $task->title }}</td>
                 <td>{{ $task->description }}</td>
-                <td>{{ $task->status }}</td>
+                <td>
+                    @if ($task->status === 'pending')
+                    <span class="badge bg-warning text-dark">Pending</span>
+                    @else
+                    <span class="badge bg-success">Done</span>
+                    @endif
+                </td>
                 <td>
                     <a href="{{ route('tasks.show', $task) }}" class="btn btn-info btn-sm">View</a>
                     <a href="{{ route('tasks.edit', $task) }}" class="btn btn-primary btn-sm">Edit</a>
@@ -32,6 +38,12 @@
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this task?')">Delete</button>
                     </form>
+                    @if ($task->status === 'pending')
+                    <form action="{{ route('tasks.done', $task) }}" method="POST" class="d-inline">
+                        @csrf
+                        <button type="submit" class="btn btn-success btn-sm">Done</button>
+                    </form>
+                    @endif
                 </td>
             </tr>
             @empty

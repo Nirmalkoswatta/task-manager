@@ -20,6 +20,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::resource('tasks', TaskController::class);
+    Route::post('tasks/{task}/done', [TaskController::class, 'markAsDone'])->name('tasks.done');
 });
 
 require __DIR__ . '/auth.php';

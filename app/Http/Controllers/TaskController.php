@@ -10,6 +10,16 @@ use Illuminate\Support\Facades\Auth;
 class TaskController extends Controller
 {
     /**
+     * Mark the specified task as done.
+     */
+    public function markAsDone(Task $task)
+    {
+        $this->authorizeTask($task);
+        $task->status = 'done';
+        $task->save();
+        return redirect()->route('tasks.index')->with('success', 'Task marked as done.');
+    }
+    /**
      * Display a listing of the resource.
      */
     public function index()
